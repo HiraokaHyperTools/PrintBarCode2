@@ -26,6 +26,7 @@ RequestExecutionLevel user
 ; Pages
 
 Page directory
+Page components
 Page instfiles
 
 ;--------------------------------
@@ -41,6 +42,13 @@ Section "" ;No components page, name is not important
   
   Exec '"$INSTDIR\${APP}.exe"'
   
+SectionEnd
+
+Section "Start menu"
+  CreateShortCut "$SMPROGRAMS\${APP}.lnk" "$INSTDIR\${APP}.exe" ""
+SectionEnd
+  
+Section ""
   IfErrors +2
     SetAutoClose true
   
