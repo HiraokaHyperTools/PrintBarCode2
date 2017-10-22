@@ -61,7 +61,12 @@ namespace PrintBarCode2 {
                     );
                 cv.FillRectangle(al[x] ? Brushes.Black : Brushes.White, rc1);
                 var rc2 = rc1;
-                rc2.X = rc.Right - M - w1 * al.Length + w1 * x;
+                if (rbHorz.Checked) {
+                    rc2.X = rc.Right - M - w1 * al.Length + w1 * x;
+                }
+                else {
+                    rc2.Y = rc.Bottom - rc1.Height - M;
+                }
                 cv.FillRectangle(al[x] ? Brushes.Black : Brushes.White, rc2);
             }
         }
